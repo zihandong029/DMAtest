@@ -73,66 +73,66 @@ export function useNFTContract() {
   });
 
   // 铸造 NFT 函数
-  const mintNFT = async (toAddress?: string, tokenURI: string = '') => {
-    if (!contractAddress || !chain) {
-      throw new Error('合约未配置或网络未连接');
-    }
+  // const mintNFT = async (toAddress?: string, tokenURI: string = '') => {
+  //   if (!contractAddress || !chain) {
+  //     throw new Error('合约未配置或网络未连接');
+  //   }
 
-    if (!address) {
-      throw new Error('请先连接钱包');
-    }
+  //   if (!address) {
+  //     throw new Error('请先连接钱包');
+  //   }
 
-    const targetAddress = toAddress || address;
+  //   const targetAddress = toAddress || address;
     
-    setIsLoading(true);
-    setError(null);
-    setTxHash(null);
+  //   setIsLoading(true);
+  //   setError(null);
+  //   setTxHash(null);
 
-    try {
-      // 生成简单的 tokenURI（如果没有提供）
-      const finalTokenURI = tokenURI || `${Date.now()}-${Math.random().toString(36).substr(2, 9)}`;
+  //   try {
+  //     // 生成简单的 tokenURI（如果没有提供）
+  //     const finalTokenURI = tokenURI || `${Date.now()}-${Math.random().toString(36).substr(2, 9)}`;
       
-      console.log('开始铸造 NFT:', {
-        to: targetAddress,
-        tokenURI: finalTokenURI,
-        contract: contractAddress,
-      });
+  //     console.log('开始铸造 NFT:', {
+  //       to: targetAddress,
+  //       tokenURI: finalTokenURI,
+  //       contract: contractAddress,
+  //     });
 
-      const hash = await writeContractAsync({
-        address: contractAddress as `0x${string}`,
-        abi: DMA_CONTRACT_ABI,
-        functionName: 'safeMint',
-        args: [targetAddress as `0x${string}`, finalTokenURI],
-      });
+  //     const hash = await writeContractAsync({
+  //       address: contractAddress as `0x${string}`,
+  //       abi: DMA_CONTRACT_ABI,
+  //       functionName: 'safeMint',
+  //       args: [targetAddress as `0x${string}`, finalTokenURI],
+  //     });
 
-      setTxHash(hash);
-      console.log('交易已提交:', hash);
+  //     setTxHash(hash);
+  //     console.log('交易已提交:', hash);
 
-      return { hash, tokenURI: finalTokenURI };
-    } catch (err: unknown) {
-      console.error('铸造失败:', err);
+  //     return { hash, tokenURI: finalTokenURI };
+  //   } catch (err: unknown) {
+  //     console.error('铸造失败:', err);
       
-      let errorMessage = '铸造失败';
+  //     let errorMessage = '铸造失败';
       
-      if (err && typeof err === 'object' && 'message' in err) {
-        const errorObj = err as { message: string };
-        if (errorObj.message?.includes('User rejected')) {
-          errorMessage = '用户取消了交易';
-        } else if (errorObj.message?.includes('insufficient funds')) {
-          errorMessage = '余额不足，请确保有足够的 ETH 支付 gas 费';
-        } else if (errorObj.message?.includes('OwnableUnauthorizedAccount')) {
-          errorMessage = '没有铸造权限，只有合约所有者可以铸造';
-        } else if (errorObj.message) {
-          errorMessage = errorObj.message;
-        }
-      }
+  //     if (err && typeof err === 'object' && 'message' in err) {
+  //       const errorObj = err as { message: string };
+  //       if (errorObj.message?.includes('User rejected')) {
+  //         errorMessage = '用户取消了交易';
+  //       } else if (errorObj.message?.includes('insufficient funds')) {
+  //         errorMessage = '余额不足，请确保有足够的 ETH 支付 gas 费';
+  //       } else if (errorObj.message?.includes('OwnableUnauthorizedAccount')) {
+  //         errorMessage = '没有铸造权限，只有合约所有者可以铸造';
+  //       } else if (errorObj.message) {
+  //         errorMessage = errorObj.message;
+  //       }
+  //     }
       
-      setError(errorMessage);
-      throw new Error(errorMessage);
-    } finally {
-      setIsLoading(false);
-    }
-  };
+  //     setError(errorMessage);
+  //     throw new Error(errorMessage);
+  //   } finally {
+  //     setIsLoading(false);
+  //   }
+  // };
 
   // 获取用户的 NFT 列表
   const getUserNFTs = async () => {
@@ -216,7 +216,7 @@ export function useNFTContract() {
     error,
     
     // 函数
-    mintNFT,
+    // mintNFT,
     getUserNFTs,
     hasNFT,
     refetchData,
