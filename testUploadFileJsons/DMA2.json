@@ -1,0 +1,25 @@
+{
+  "name": "DMA Studio Genesis #2", 
+  "description": "DMA Studio 创世系列第二号作品，体现了 Noir Badge 的极简哲学。每一个像素都承载着创作者的匠心独运。",
+  "image": "ipfs://QmSbdtfZUSd52PMjxJcfrDpohShBYPPPAdrFhHikFTFSr6",
+  "attributes": [
+    {
+      "trait_type": "Collection", 
+      "value": "Genesis"
+    },
+    {
+      "trait_type": "Element",
+      "value": "Noir Badge"
+    },
+    {
+      "trait_type": "Rarity",
+      "value": "Epic"
+    },
+    {
+      "trait_type": "Aesthetic",
+      "value": "Minimalist"
+    }
+  ],
+  "external_url": "https://your-dapp-url.vercel.app",
+  "background_color": "1a1a1a"
+}

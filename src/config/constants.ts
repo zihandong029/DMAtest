@@ -28,9 +28,9 @@ export const DMA_BRANDING = {
     background: '#f8f9fa',   // Light background
   },
   assets: {
-    dirkHorn: '/icons/dirk-horn.svg',
-    noirBadge: '/icons/noir-badge.svg',
-    logo: '/images/dma-logo.png',
+    dirkHorn: '/icons/dirk-horn.png',
+    noirBadge: '/icons/dirk-horn.png',
+    logo: '/icons/dma-logo.png',
   },
 } as const;
 

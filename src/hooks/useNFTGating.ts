@@ -2,12 +2,12 @@
 
 import { useState, useEffect } from 'react';
 import { useAccount } from 'wagmi';
-import { useNFTContract } from './useNFTContract';
+import { useLimitedNFTContract } from './useLimitedNFTContract';
 
 export function useNFTGating() {
   const { address, isConnected } = useAccount();
-  const { balance, isContractConfigured } = useNFTContract();
-  
+  const { balance, isContractConfigured } = useLimitedNFTContract();
+
   const [isChecking, setIsChecking] = useState(false);
   const [hasAccess, setHasAccess] = useState(false);
   const [mounted, setMounted] = useState(false);

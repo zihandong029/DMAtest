@@ -1,0 +1,25 @@
+{
+  "name": "DMA Studio Genesis #3",
+  "description": "DMA Studio 3",
+  "image": "ipfs://QmZ6HjJacA3sL2MMA1wL5yA9qGLQiGLEABHxFnKGTDvYxq",
+  "attributes": [
+    {
+      "trait_type": "Collection",
+      "value": "Genesis"
+    },
+    {
+      "trait_type": "Element",
+      "value": "Dirk Horn"
+    },
+    {
+      "trait_type": "Rarity",
+      "value": "Epic"
+    },
+    {
+      "trait_type": "Power Level",
+      "value": "100"
+    }
+  ],
+  "external_url": "https://your-dapp-url.vercel.app",
+  "background_color": "000000"
+}

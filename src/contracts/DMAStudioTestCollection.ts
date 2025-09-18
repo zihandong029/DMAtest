@@ -253,6 +253,56 @@ export const DMA_CONTRACT_ABI = [
 			"inputs": [
 				{
 					"indexed": true,
+					"internalType": "uint256",
+					"name": "nftId",
+					"type": "uint256"
+				},
+				{
+					"indexed": false,
+					"internalType": "string",
+					"name": "metadataURI",
+					"type": "string"
+				},
+				{
+					"indexed": false,
+					"internalType": "uint256",
+					"name": "maxSupply",
+					"type": "uint256"
+				}
+			],
+			"name": "NFTConfigUpdated",
+			"type": "event"
+		},
+		{
+			"anonymous": false,
+			"inputs": [
+				{
+					"indexed": true,
+					"internalType": "address",
+					"name": "to",
+					"type": "address"
+				},
+				{
+					"indexed": true,
+					"internalType": "uint256",
+					"name": "tokenId",
+					"type": "uint256"
+				},
+				{
+					"indexed": true,
+					"internalType": "uint256",
+					"name": "nftId",
+					"type": "uint256"
+				}
+			],
+			"name": "NFTMinted",
+			"type": "event"
+		},
+		{
+			"anonymous": false,
+			"inputs": [
+				{
+					"indexed": true,
 					"internalType": "address",
 					"name": "previousOwner",
 					"type": "address"
@@ -319,6 +369,19 @@ export const DMA_CONTRACT_ABI = [
 			"type": "event"
 		},
 		{
+			"inputs": [],
+			"name": "MAX_MINT_PER_USER_PER_NFT",
+			"outputs": [
+				{
+					"internalType": "uint256",
+					"name": "",
+					"type": "uint256"
+				}
+			],
+			"stateMutability": "view",
+			"type": "function"
+		},
+		{
 			"inputs": [
 				{
 					"internalType": "address",
@@ -358,6 +421,19 @@ export const DMA_CONTRACT_ABI = [
 		{
 			"inputs": [
 				{
+					"internalType": "uint256[]",
+					"name": "nftIds",
+					"type": "uint256[]"
+				}
+			],
+			"name": "batchMint",
+			"outputs": [],
+			"stateMutability": "payable",
+			"type": "function"
+		},
+		{
+			"inputs": [
+				{
 					"internalType": "uint256",
 					"name": "tokenId",
 					"type": "uint256"
@@ -366,6 +442,29 @@ export const DMA_CONTRACT_ABI = [
 			"name": "burn",
 			"outputs": [],
 			"stateMutability": "nonpayable",
+			"type": "function"
+		},
+		{
+			"inputs": [],
+			"name": "getAllNFTStatus",
+			"outputs": [
+				{
+					"internalType": "uint256[]",
+					"name": "supplies",
+					"type": "uint256[]"
+				},
+				{
+					"internalType": "uint256[]",
+					"name": "maxSupplies",
+					"type": "uint256[]"
+				},
+				{
+					"internalType": "bool[]",
+					"name": "activeStatus",
+					"type": "bool[]"
+				}
+			],
+			"stateMutability": "view",
 			"type": "function"
 		},
 		{
@@ -382,6 +481,49 @@ export const DMA_CONTRACT_ABI = [
 					"internalType": "address",
 					"name": "",
 					"type": "address"
+				}
+			],
+			"stateMutability": "view",
+			"type": "function"
+		},
+		{
+			"inputs": [
+				{
+					"internalType": "uint256",
+					"name": "nftId",
+					"type": "uint256"
+				}
+			],
+			"name": "getRemainingSupply",
+			"outputs": [
+				{
+					"internalType": "uint256",
+					"name": "",
+					"type": "uint256"
+				}
+			],
+			"stateMutability": "view",
+			"type": "function"
+		},
+		{
+			"inputs": [
+				{
+					"internalType": "address",
+					"name": "user",
+					"type": "address"
+				},
+				{
+					"internalType": "uint256",
+					"name": "nftId",
+					"type": "uint256"
+				}
+			],
+			"name": "getUserRemainingMints",
+			"outputs": [
+				{
+					"internalType": "uint256",
+					"name": "",
+					"type": "uint256"
 				}
 			],
 			"stateMutability": "view",
@@ -412,12 +554,93 @@ export const DMA_CONTRACT_ABI = [
 			"type": "function"
 		},
 		{
+			"inputs": [
+				{
+					"internalType": "uint256",
+					"name": "nftId",
+					"type": "uint256"
+				}
+			],
+			"name": "isNFTAvailable",
+			"outputs": [
+				{
+					"internalType": "bool",
+					"name": "",
+					"type": "bool"
+				}
+			],
+			"stateMutability": "view",
+			"type": "function"
+		},
+		{
+			"inputs": [
+				{
+					"internalType": "uint256",
+					"name": "nftId",
+					"type": "uint256"
+				},
+				{
+					"internalType": "address",
+					"name": "to",
+					"type": "address"
+				}
+			],
+			"name": "mintNFT",
+			"outputs": [],
+			"stateMutability": "payable",
+			"type": "function"
+		},
+		{
 			"inputs": [],
 			"name": "name",
 			"outputs": [
 				{
 					"internalType": "string",
 					"name": "",
+					"type": "string"
+				}
+			],
+			"stateMutability": "view",
+			"type": "function"
+		},
+		{
+			"inputs": [
+				{
+					"internalType": "uint256",
+					"name": "",
+					"type": "uint256"
+				}
+			],
+			"name": "nftConfigs",
+			"outputs": [
+				{
+					"internalType": "string",
+					"name": "metadataURI",
+					"type": "string"
+				},
+				{
+					"internalType": "uint256",
+					"name": "maxSupply",
+					"type": "uint256"
+				},
+				{
+					"internalType": "uint256",
+					"name": "currentSupply",
+					"type": "uint256"
+				},
+				{
+					"internalType": "bool",
+					"name": "isActive",
+					"type": "bool"
+				},
+				{
+					"internalType": "string",
+					"name": "name",
+					"type": "string"
+				},
+				{
+					"internalType": "string",
+					"name": "description",
 					"type": "string"
 				}
 			],
@@ -435,6 +658,24 @@ export const DMA_CONTRACT_ABI = [
 				}
 			],
 			"stateMutability": "view",
+			"type": "function"
+		},
+		{
+			"inputs": [
+				{
+					"internalType": "uint256",
+					"name": "nftId",
+					"type": "uint256"
+				},
+				{
+					"internalType": "address",
+					"name": "to",
+					"type": "address"
+				}
+			],
+			"name": "ownerMint",
+			"outputs": [],
+			"stateMutability": "nonpayable",
 			"type": "function"
 		},
 		{
@@ -477,33 +718,22 @@ export const DMA_CONTRACT_ABI = [
 			"type": "function"
 		},
 		{
-			"inputs": [],
-			"name": "renounceOwnership",
-			"outputs": [],
-			"stateMutability": "nonpayable",
-			"type": "function"
-		},
-		{
 			"inputs": [
 				{
-					"internalType": "address",
-					"name": "to",
-					"type": "address"
-				},
-				{
-					"internalType": "string",
-					"name": "uri",
-					"type": "string"
-				}
-			],
-			"name": "safeMint",
-			"outputs": [
-				{
 					"internalType": "uint256",
-					"name": "",
+					"name": "nftId",
 					"type": "uint256"
 				}
 			],
+			"name": "publicMint",
+			"outputs": [],
+			"stateMutability": "payable",
+			"type": "function"
+		},
+		{
+			"inputs": [],
+			"name": "renounceOwnership",
+			"outputs": [],
 			"stateMutability": "nonpayable",
 			"type": "function"
 		},
@@ -724,6 +954,58 @@ export const DMA_CONTRACT_ABI = [
 			"name": "unpause",
 			"outputs": [],
 			"stateMutability": "nonpayable",
+			"type": "function"
+		},
+		{
+			"inputs": [
+				{
+					"internalType": "uint256",
+					"name": "nftId",
+					"type": "uint256"
+				},
+				{
+					"internalType": "string",
+					"name": "newMetadataURI",
+					"type": "string"
+				},
+				{
+					"internalType": "uint256",
+					"name": "newMaxSupply",
+					"type": "uint256"
+				},
+				{
+					"internalType": "bool",
+					"name": "isActive",
+					"type": "bool"
+				}
+			],
+			"name": "updateNFTConfig",
+			"outputs": [],
+			"stateMutability": "nonpayable",
+			"type": "function"
+		},
+		{
+			"inputs": [
+				{
+					"internalType": "address",
+					"name": "",
+					"type": "address"
+				},
+				{
+					"internalType": "uint256",
+					"name": "",
+					"type": "uint256"
+				}
+			],
+			"name": "userMintCount",
+			"outputs": [
+				{
+					"internalType": "uint256",
+					"name": "",
+					"type": "uint256"
+				}
+			],
+			"stateMutability": "view",
 			"type": "function"
 		}
 	] as const;

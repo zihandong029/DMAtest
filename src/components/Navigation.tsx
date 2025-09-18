@@ -14,17 +14,17 @@ const navItems = [
   },
   {
     href: ROUTES.MINT,
-    label: '铸造 NFT',
+    label: 'mint NFT',
     icon: Palette,
   },
-  {
-    href: ROUTES.GATE,
-    label: '专属内容',
-    icon: Shield,
-  },
+  // {
+  //   href: ROUTES.GATE,
+  //   label: '专属内容',
+  //   icon: Shield,
+  // },
   {
     href: ROUTES.INVENTORY,
-    label: '我的收藏',
+    label: 'my NFTs',
     icon: Package,
   },
 ];

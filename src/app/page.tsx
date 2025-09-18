@@ -8,21 +8,21 @@ import { Palette, Shield, Package, ArrowRight } from 'lucide-react';
 const features = [
   {
     href: ROUTES.MINT,
-    title: '铸造 NFT',
+    title: 'mint NFT',
     description: '创建你的专属测试 NFT',
     icon: Palette,
     color: 'from-purple-500 to-purple-600',
   },
-  {
-    href: ROUTES.GATE,
-    title: '专属内容',
-    description: '解锁隐藏的艺术作品',
-    icon: Shield,
-    color: 'from-blue-500 to-blue-600',
-  },
+  // {
+  //   href: ROUTES.GATE,
+  //   title: '专属内容',
+  //   description: '解锁隐藏的艺术作品',
+  //   icon: Shield,
+  //   color: 'from-blue-500 to-blue-600',
+  // },
   {
     href: ROUTES.INVENTORY,
-    title: '我的收藏',
+    title: 'my NFTs',
     description: '查看拥有的所有 NFT',
     icon: Package,
     color: 'from-green-500 to-green-600',

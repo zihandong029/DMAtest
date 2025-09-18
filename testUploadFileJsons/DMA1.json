@@ -1,0 +1,24 @@
+{
+  "name": "DMA Studio Genesis #1",
+  "description": "DMA Studio 创世系列第一号作品，融合了 Dirk Horn 的力量与 Noir 美学的深度。这是数字艺术史上的里程碑时刻。",
+  "image": "ipfs://QmQcLJSRtjq8yU5RoeHezCLdvYcgbJ1Wz22Yb1vmcsKUim",
+  "external_url": "https://your-dapp-url.vercel.app",
+  "attributes": [
+    {
+      "trait_type": "Collection",
+      "value": "Genesis"
+    },
+    {
+      "trait_type": "Element", 
+      "value": "Dirk Horn"
+    },
+    {
+      "trait_type": "Rarity",
+      "value": "Legendary"
+    },
+    {
+      "trait_type": "Power Level",
+      "value": 100
+    }
+  ]
+}

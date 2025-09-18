@@ -51,11 +51,11 @@ export function NetworkStatus() {
         <div className="space-y-2">
           <div className="flex items-center justify-between p-3 bg-blue-50 rounded-lg">
             <span className="font-medium">Ethereum Sepolia</span>
-            <span className="status-connected">✅ 支持</span>
+            <span className="status-connected">✅ supported</span>
           </div>
           <div className="flex items-center justify-between p-3 bg-purple-50 rounded-lg">
             <span className="font-medium">Polygon Amoy</span>
-            <span className="status-connected">✅ 支持</span>
+            <span className="status-disconnected">not supported</span>
           </div>
         </div>
 
